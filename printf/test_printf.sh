@@ -6,7 +6,7 @@ PURPLE="\033[38;5;93m"
 PINK="\033[38;5;219m"
 NC="\033[0m"
 
-cc main.c libftprintf.a #keep in mind file locations
+cc main.c libftprintf.a
 
 testnbr=1
 printf "$PURPLE=======EXECUTING TESTS========$NC"
