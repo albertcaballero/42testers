@@ -17,12 +17,7 @@ printf "\n🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳�
 res=0
 printf "$PURPLE\n_______ERROR HANDLING_______\n$NC" #=======================================================
 printf "\n$BLUE====TEST $testnbr ====$YELLOW(empty string)(Expected: Error)\n$NC"
-res=$(./push_swap "3" "1" "" | grep Error; echo $?)
-# if [ res -eq 1]
-# 	then
-# 		printf "$GREEN OK"
-# 	else
-# 		printf "$RED KO"
+./push_swap "3" "1" "" 2> test.txt
 testnbr=$(($testnbr + 1))
 
 printf "\n$BLUE====TEST $testnbr ====$YELLOW(no input)(Expected: NOTHING)\n$NC"
@@ -30,7 +25,7 @@ printf "\n$BLUE====TEST $testnbr ====$YELLOW(no input)(Expected: NOTHING)\n$NC"
 testnbr=$(($testnbr + 1))
 
 printf "\n$BLUE====TEST $testnbr ====$YELLOW(spaces)(Expected: Error)\n$NC"
-res=$(./push_swap "     ")
+./push_swap "     "
 testnbr=$(($testnbr + 1))
 
 printf "\n$BLUE====TEST $testnbr ====$YELLOW(checking stderr)(Expected: NOTHING)\n$NC"
