@@ -6,9 +6,10 @@ PURPLE="\033[38;5;93m"
 PINK="\033[38;5;219m"
 NC="\033[0m"
 
-cc main.c get_next_line.c get_next_line_utils.c
+gcc -Wall -Wextra -Werror gnltst_main.c get_next_line.c get_next_line_utils.c
 rm outfile.txt
-
+cat /dev/urandom | head -1 > randomfile.txt
+cat /dev/urandom | head -10 > randomfilebig.txt
 file="secretfile.txt"
 testnbr=1
 printf "\n🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲\n"
@@ -19,6 +20,14 @@ printf "\n🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳�
 
 printf "\n$BLUE====TEST $testnbr ====\n$YELLOW(normal test)\n$NC"
 ./a.out $file
+
+testnbr=$(($testnbr + 1))
+printf "\n$BLUE====TEST $testnbr ====\n$YELLOW(dev/random)\n$NC"
+./a.out randomfile.txt
+
+testnbr=$(($testnbr + 1))
+printf "\n$BLUE====TEST $testnbr ====\n$YELLOW(dev/random big)\n$NC"
+./a.out randomfilebig.txt
 
 testnbr=$(($testnbr + 1))
 printf "\n$BLUE====TEST $testnbr ====\n$YELLOW(nonexisting file)\n$NC"
