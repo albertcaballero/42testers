@@ -11,9 +11,9 @@ cat /dev/urandom | head -10 > randomfilebig.txt
 testnbr=1
 qttError=0
 printf "\n🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲\n"
-printf "$GREEN\n\t🌟=======ALCABALL GNL mini-TESTER========🌟\n$NC"
+printf "$GREEN\n\t🌟=======ALCABALL & APRIEGO GNL mini-TESTER========🌟\n$NC"
 printf "$PINK\nIf there's any issue or something to improve, pls tell me!! :)\n\
-	(I'm always at the campus and I'm 24/7 on Slack)\n"
+	Feedback is greatly welcome!"
 printf "\n🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲\n"
 
 #============================================================================================================#
@@ -33,7 +33,7 @@ fi
 
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(normal test)\n$NC"
 file="secretfile.txt"
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 diff output $file
 
 if [ $? -eq 0 ]; then
@@ -53,7 +53,7 @@ fi
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Empty file)\n$NC"
 file="secret.txt"
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 diff output $file
 
 if [ $? -eq 0 ]; then
@@ -73,7 +73,7 @@ fi
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Random file)\n$NC"
 file="randomfile.txt" 
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 
 if [ $? -eq 0 ]; then
 	printf "$GREEN[OK]\n$NC"
@@ -89,7 +89,7 @@ else
 	./test.out $file 2>> error
 fi
 
-printf "In this case the diff isn't important. Focus in leaking and segfault\n"
+printf "In this case the diff isn't important. Focus on leaks and segfault\n"
 
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Random big file)\n$NC"
@@ -110,7 +110,7 @@ else
 	./test.out $file 2>> error
 fi
 
-printf "In this case the diff isn't important. Focus in leaking and segfault\n"
+printf "In this case the diff isn't important. Focus on leaks and segfault\n"
 
 #============================================================================================================#
 
@@ -133,7 +133,7 @@ fi
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(normal test)\n$NC"
 file="secretfile.txt"
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 
 if [ $? -eq 124 ]; then
 	((qttError++))
@@ -161,7 +161,7 @@ fi
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(normal test)\n$NC"
 file="secretfile.txt"
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 
 if [ $? -eq 124 ]; then
 	((qttError++))
@@ -189,7 +189,7 @@ fi
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(normal test)\n$NC"
 file="secretfile.txt"
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 
 if [ $? -eq 124 ]; then
 	((qttError++))
@@ -220,7 +220,7 @@ fi
 
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(normal test)\n$NC"
 file="secretfile.txt"
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 diff output $file
 
 if [ $? -eq 0 ]; then
@@ -240,7 +240,7 @@ fi
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Empty file)\n$NC"
 file="secret.txt"
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 diff output $file
 
 if [ $? -eq 0 ]; then
@@ -260,7 +260,7 @@ fi
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Random file)\n$NC"
 file="randomfile.txt" 
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 
 if [ $? -eq 0 ]; then
 	printf "$GREEN[OK]\n$NC"
@@ -276,7 +276,7 @@ else
 	./test.out $file 2>> error
 fi
 
-printf "In this case the diff isn't important. Focus in leaking and segfault\n"
+printf "In this case the diff isn't important. Focus on leaks and segfault\n"
 
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Random big file)\n$NC"
@@ -297,7 +297,7 @@ else
 	./test.out $file 2>> error
 fi
 
-printf "In this case the diff isn't important. Focus in leaking and segfault\n"
+printf "In this case the diff isn't important. Focus on leaks and segfault\n"
 
 gcc -Wall -Wextra -Werror -D BUFFER_SIZE=1000 gnltst_main.c get_next_line.c get_next_line_utils.c -o test.out 2> error
 testnbr=0
@@ -315,7 +315,7 @@ fi
 
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(normal test)\n$NC"
 file="secretfile.txt"
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 diff output $file
 
 if [ $? -eq 0 ]; then
@@ -335,7 +335,7 @@ fi
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Empty file)\n$NC"
 file="secret.txt"
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 diff output $file
 
 if [ $? -eq 0 ]; then
@@ -355,7 +355,7 @@ fi
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Random file)\n$NC"
 file="randomfile.txt" 
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 
 if [ $? -eq 0 ]; then
 	printf "$GREEN[OK]\n$NC"
@@ -371,7 +371,7 @@ else
 	./test.out $file 2>> error
 fi
 
-printf "In this case the diff isn't important. Focus in leaking and segfault\n"
+printf "In this case the diff isn't important. Focus on leaks and segfault\n"
 
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Random big file)\n$NC"
@@ -392,7 +392,7 @@ else
 	./test.out $file 2>> error
 fi
 
-printf "In this case the diff isn't important. Focus in leaking and segfault\n"
+printf "In this case the diff isn't important. Focus on leaks and segfault\n"
 
 printf "$PINK\nBUFFER_SIZE 100\n$NC"
 
@@ -408,7 +408,7 @@ fi
 
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(normal test)\n$NC"
 file="secretfile.txt"
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 diff output $file
 
 if [ $? -eq 0 ]; then
@@ -428,7 +428,7 @@ fi
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Empty file)\n$NC"
 file="secret.txt"
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 diff output $file
 
 if [ $? -eq 0 ]; then
@@ -448,7 +448,7 @@ fi
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Random file)\n$NC"
 file="randomfile.txt" 
-timeout 10s ./test.out $file > output 2>> error
+./test.out $file > output 2>> error
 
 if [ $? -eq 0 ]; then
 	printf "$GREEN[OK]\n$NC"
@@ -464,7 +464,7 @@ else
 	./test.out $file 2>> error
 fi
 
-printf "In this case the diff isn't important. Focus in leaking and segfault\n"
+printf "In this case the diff isn't important. Focus on leaks and segfault\n"
 
 ((testnbr++))
 printf "\n$BLUE==== TEST $testnbr ====\n$YELLOW(Random big file)\n$NC"
@@ -485,7 +485,7 @@ else
 	./test.out $file 2>> error
 fi
 
-printf "In this case the diff isn't important. Focus in leaking and segfault\n"
+printf "In this case the diff isn't important. Focus on leaks and segfault\n"
 
 #============================================================================================================#
 
@@ -502,5 +502,6 @@ fi
 rm error test_error output test.out
 printf "$NC\n🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲\n"
 printf "\n\t$GREEN 🌟========TESTS COMPLETED, GOOD LUCK!========🌟\n$NC"
-printf "$PINK By Albert Caballero\n Intra: Alcaball\n Github: https://github.com/albertcaballero\n$NC"
+printf "$PINK By Albert Caballero & Adrià Priego\n Intra: Alcaball, Apriego\n\
+Github:\n\thttps://github.com/albertcaballero\nhttps://github.com/AdriaPriego$NC"
 printf "$NC\n🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲🔳🔲\n"
